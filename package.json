@@ -1,0 +1,27 @@
+{
+  "name": "com.jjasundry.conditional-hide-in-inspector",
+  "version": "1.0.0",
+  "displayName": "Conditional HideInInspector Attributes",
+  "description": "A Unity package that adds attributes which hides a property from the inspector if a conditional is met.",
+  "unity": "6000.0",
+  "documentationUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/Documentation~/Documentation.md",
+  "changelogUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/LICENSE.MD",
+  "dependencies": {
+ },
+ "keywords": [
+    "HideInInspector",
+    "Inspector",
+    "ShowIf",
+    "Custom",
+    "Attribute",
+    "Conditional"
+  ],
+  "author": {
+    "name": "Adam White",
+    "email": "jjasundry+gamedev@gmail.com",
+    "url": "https://www.linkedin.com/in/adamwhite302/"
+  },
+  "hideInEditor": "false",
+  "license": "CC-BY-4.0"
+}
