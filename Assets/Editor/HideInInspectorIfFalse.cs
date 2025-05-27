@@ -19,7 +19,7 @@ namespace ConditionalInspector
     }
 
     [CustomPropertyDrawer(typeof(HideInInspectorIfFalseAttribute))]
-    public class HideInInspectorIfFalseDrawer : HideInInspectorIfDrawer
+    internal class HideInInspectorIfFalseDrawer : HideInInspectorIfDrawer
     {
         protected override bool IsVisible(SerializedObject serializedObject)
         {

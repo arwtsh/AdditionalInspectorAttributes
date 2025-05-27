@@ -1,6 +1,6 @@
 {
   "name": "com.jjasundry.conditional-hide-in-inspector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Conditional HideInInspector Attributes",
   "description": "A Unity package that adds attributes which hides a property from the inspector if a conditional is met.",
   "unity": "6000.0",

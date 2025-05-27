@@ -1,36 +1,30 @@
-using System.Reflection;
-using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEditor.UIElements;
 
 namespace ConditionalInspector
 {
-    public abstract class HideInInspectorIfDrawer : PropertyDrawer
+    internal abstract class HideInInspectorIfDrawer : PropertyDrawer
     {
         protected abstract bool IsVisible(SerializedObject serializedObject);
 
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        //Not called every frame. OnGUI's PropertyFields are not aligned properly
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            if (IsVisible(property.serializedObject))
-            {
-                EditorGUI.PropertyField(position, property, label, true);
-            }
-            else
-            {
-                GUI.enabled = false;
-            }
-        }
+            VisualElement container = new VisualElement();
+            PropertyField element = new PropertyField(property);
+            container.Add(element);
 
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
-            if (IsVisible(property.serializedObject))
+            //Make an update loop so the inspector is dynamic.
+            //OnGUI's updates would be best, but it doesn't get called when this method returns something.
+            container.schedule.Execute(() =>
             {
-                return base.GetPropertyHeight(property, label);
-            }
-            else
-            {
-                return 0;
-            }
+                Debug.Log("Updating");
+                container.style.display = IsVisible(property.serializedObject) ? DisplayStyle.Flex : DisplayStyle.None;
+            }).Every(100); //~10 FPS I decided to go for more optimization since it's just the editor. 16 is ~60 FPS if you want to increase it.
+
+            return container;
         }
     }
 }
