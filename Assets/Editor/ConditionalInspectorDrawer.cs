@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 
-namespace ConditionalInspector
+namespace ConditionalInspector.Editor
 {
     internal abstract class HideInInspectorIfDrawer : PropertyDrawer
     {
@@ -20,7 +20,6 @@ namespace ConditionalInspector
             //OnGUI's updates would be best, but it doesn't get called when this method returns something.
             container.schedule.Execute(() =>
             {
-                Debug.Log("Updating");
                 container.style.display = IsVisible(property.serializedObject) ? DisplayStyle.Flex : DisplayStyle.None;
             }).Every(100); //~10 FPS I decided to go for more optimization since it's just the editor. 16 is ~60 FPS if you want to increase it.
 

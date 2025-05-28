@@ -2,32 +2,18 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace ConditionalInspector
+namespace ConditionalInspector.Editor
 {
-    /// <summary>
-    /// Shows this property in the inspector if the boolean passed in is false, otherwise it hides it.
-    /// IMPORTANT: You pass in the NAME of the variable. You can pass in a field, property, or method. They don't have to be serialized.
-    /// </summary>
-    public class ShowInInspectorIfFalseAttribute : PropertyAttribute
-    {
-        public string boolPropertyName;
-
-        public ShowInInspectorIfFalseAttribute(string _boolPropertyName)
-        {
-            boolPropertyName = _boolPropertyName;
-        }
-    }
-
-    [CustomPropertyDrawer(typeof(ShowInInspectorIfFalseAttribute))]
-    internal class ShowInInspectorIfFalseDrawer : HideInInspectorIfDrawer
+    [CustomPropertyDrawer(typeof(HideInInspectorIfTrueAttribute))]
+    internal class HideInInspectorIfTrueDrawer : HideInInspectorIfDrawer
     {
         protected override bool IsVisible(SerializedObject serializedObject)
         {
-            ShowInInspectorIfFalseAttribute conditional = (ShowInInspectorIfFalseAttribute)attribute;
+            HideInInspectorIfTrueAttribute conditional = (HideInInspectorIfTrueAttribute)attribute;
 
             if (System.String.IsNullOrEmpty(conditional.boolPropertyName))
             {
-                Debug.LogWarning("The string passed into attribute ShowInInspectorIfFalse on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was null or empty.");
+                Debug.LogWarning("The string passed into attribute HideInInspectorIfFalse on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was null or empty.");
                 return true;
             }
 
@@ -37,7 +23,7 @@ namespace ConditionalInspector
                 if (propertyReference.PropertyType != typeof(bool))
                 {
                     Debug.LogWarning("The property " + propertyReference.Name + " in type " + fieldInfo.DeclaringType + " is type " + propertyReference.PropertyType.Name + " instead of bool. " +
-                        "The ShowInInspectorIfFalse attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
+                        "The HideInInspectorIfTrue attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
                     return true;
                 }
 
@@ -47,10 +33,10 @@ namespace ConditionalInspector
             FieldInfo fieldReference = serializedObject.targetObject.GetType().GetField(conditional.boolPropertyName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             if (fieldReference != null)
             {
-                if(fieldReference.FieldType != typeof(bool))
+                if (fieldReference.FieldType != typeof(bool))
                 {
                     Debug.LogWarning("The field " + fieldReference.Name + " in type " + fieldInfo.DeclaringType + " is type " + fieldReference.FieldType.Name + " instead of bool. " +
-                        "The ShowInInspectorIfFalse attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
+                        "The HideInInspectorIfTrue attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
                     return true;
                 }
 
@@ -63,7 +49,7 @@ namespace ConditionalInspector
                 if (methodReference.ReturnType != typeof(bool))
                 {
                     Debug.LogWarning("The method " + methodReference.Name + " in type " + fieldInfo.DeclaringType + " has a return value of type " + methodReference.ReturnType.Name + " instead of bool. " +
-                        "The ShowInInspectorIfFalse attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
+                        "The HideInInspectorIfTrue attribute on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " was unable to be parsed.");
                     return true;
                 }
 
@@ -71,7 +57,7 @@ namespace ConditionalInspector
             }
 
             //Failed to find the property, field, or method. Default to visible.
-            Debug.LogWarning("The string passed into attribute ShowInInspectorIfFalse on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " does not match any property, field, or method.");
+            Debug.LogWarning("The string passed into attribute HideInInspectorIfTrue on property " + fieldInfo.Name + " in type " + fieldInfo.DeclaringType + " does not match any property, field, or method.");
             return true;
         }
     }

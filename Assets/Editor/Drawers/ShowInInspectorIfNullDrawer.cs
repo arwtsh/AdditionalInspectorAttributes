@@ -2,22 +2,8 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace ConditionalInspector
+namespace ConditionalInspector.Editor
 {
-    /// <summary>
-    /// Shows this property in the inspector if the object passed in is null, otherwise it hides it.
-    /// IMPORTANT: You pass in the NAME of the variable. You can pass in a field, property, or method. They don't have to be serialized.
-    /// </summary>
-    public class ShowInInspectorIfNullAttribute : PropertyAttribute
-    {
-        public string propertyName;
-
-        public ShowInInspectorIfNullAttribute(string _propertyName)
-        {
-            propertyName = _propertyName;
-        }
-    }
-
     [CustomPropertyDrawer(typeof(ShowInInspectorIfNullAttribute))]
     internal class ShowInInspectorIfNullDrawer : HideInInspectorIfDrawer
     {

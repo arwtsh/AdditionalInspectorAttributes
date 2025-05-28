@@ -1,8 +1,6 @@
-using System.Reflection;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
-namespace ConditionalInspector
+namespace ConditionalInspector.Editor
 {
     internal sealed class Utilities
     {
