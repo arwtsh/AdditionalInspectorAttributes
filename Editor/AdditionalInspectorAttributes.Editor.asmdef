@@ -1,0 +1,18 @@
+{
+    "name": "AdditionalInspectorAttributes.Editor",
+    "rootNamespace": "AdditionalInspectorAttributes.Editor",
+    "references": [
+        "GUID:6adf03b40be2df44782eff53e421f9a6"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
