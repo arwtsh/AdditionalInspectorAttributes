@@ -7,7 +7,7 @@ namespace AdditionalInspectorAttributes.Editor
 {
     internal abstract class HideIfDrawer : PropertyDrawer
     {
-        protected abstract bool IsVisible(SerializedObject serializedObject);
+        protected virtual bool IsVisible(SerializedObject serializedObject) { return true; }
 
         //Not called every frame. OnGUI's PropertyFields are not aligned properly
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
