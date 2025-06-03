@@ -1,5 +1,21 @@
 # Changelog
 
+## v2.0.0 (6/2/2025)
+
+### Summary
+
+Added different types of attributes and changed the package's name to show this.
+
+### Changed
+
+Package name is now "Additional Inspector Attributes" instead of "Conditional HideInInspector Attributes"
+
+### Added
+
+- HideInInspector PlayMode
+- Disabled variations of all HideInInspector attributes
+- ReadOnly attribute
+
 ## v1.0.1 (5/27/2025)
 
 ### Summary

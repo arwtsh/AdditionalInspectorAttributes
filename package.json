@@ -1,12 +1,12 @@
 {
-  "name": "com.jjasundry.conditional-hide-in-inspector",
-  "version": "1.0.1",
-  "displayName": "Conditional HideInInspector Attributes",
-  "description": "A Unity package that adds attributes which hides a property from the inspector if a conditional is met.",
+  "name": "com.jjasundry.additional-inspector-attributes",
+  "version": "2.0.0",
+  "displayName": "Additional Inspector Attributes",
+  "description": "A Unity package that adds property attributes which change how they look in the Unity inspector.",
   "unity": "6000.0",
-  "documentationUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/Documentation~/Documentation.md",
-  "changelogUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/CHANGELOG.md",
-  "licensesUrl": "https://github.com/arwtsh/ConditionalHideInInspectorAttributes/blob/main/LICENSE.MD",
+  "documentationUrl": "https://github.com/arwtsh/AdditionalInspectorAttributes/blob/main/Documentation~/Documentation.md",
+  "changelogUrl": "https://github.com/arwtsh/AdditionalInspectorAttributes/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/arwtsh/AdditionalInspectorAttributes/blob/main/LICENSE.MD",
   "dependencies": {
  },
  "keywords": [
@@ -15,7 +15,13 @@
     "ShowIf",
     "Custom",
     "Attribute",
-    "Conditional"
+    "Conditional",
+    "Property",
+    "Drawer",
+    "HideIf",
+    "DisableIf",
+    "EnableIf",
+    "ReadOnly"
   ],
   "author": {
     "name": "Adam White",
