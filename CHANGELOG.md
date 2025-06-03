@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.0 (6/3/2025)
+
+### Summary
+
+Added HelpBox attribute so that it can be placed after any attribute without the need of a custom inspector.
+
+### Added
+
+- HelpBox attribute
+
 ## v2.0.0 (6/2/2025)
 
 ### Summary
