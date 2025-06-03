@@ -20,21 +20,49 @@ Tested on Unity version 6000.0; will most likely work on older versions, but you
 
 ## Description of Assets
 
-This package adds 3 types of attributes which dynamically hide a serialized property from the inspector (similiar to [HideInInspector](https://docs.unity3d.com/ScriptReference/HideInInspector.html)) based on another value. These types are:
-- Boolean
-  - ShowInInspectorIfTrue
-  - ShowInInspectorIfFalse
-  - HideInInspectorIfTrue
-  - HideInInspectorIfFalse
-- Null check
-  - ShowInInspectorIfNull
-  - ShowInInspectorIfNotNull
-  - HideInInspectorIfNull
-  - HideInInspectorIfNotNull
-- Equality
-  - ShowInInspectorIfEqual
-  - ShowInInspectorIfNotEqual
-  - HideInInspectorIfEqual
-  - HideInInspectorIfNotEqual
+This package adds new attributes which modify how serialized properties behave in the inspector (such as [HideInInspector](https://docs.unity3d.com/ScriptReference/HideInInspector.html)). These types are:
+- **Read Only** - Makes this property not editable in the inspector, but will still display its value.
+- **Conditional HideInInspector**
+  - **Boolean** - Either hides or shows the property based on a boolean property, field, or method's return value.
+    - ShowInInspectorIfTrue
+    - ShowInInspectorIfFalse
+    - HideInInspectorIfTrue
+    - HideInInspectorIfFalse
+  - **Null check** - Either hides or shows the property if a property, field, or method's return value is null.
+    - ShowInInspectorIfNull
+    - ShowInInspectorIfNotNull
+    - HideInInspectorIfNull
+    - HideInInspectorIfNotNull
+  - **Equality** - Either hides or shows the property if a property, field, or method's return value is equal to a predefined value.
+    - ShowInInspectorIfEqual
+    - ShowInInspectorIfNotEqual
+    - HideInInspectorIfEqual
+    - HideInInspectorIfNotEqual
+  - **Editor Mode** - Either hides or shows the property if the editor is in play mode.
+    - ShowInInspectorWhilePlaying
+    - ShowInInspectorWhileEditing
+    - HideInInspectorWhilePlaying
+    - HideInInspectorWhileEditing
+- **Conditional ReadOnly**
+  - **Boolean** - Property is readonly based on a boolean property, field, or method's return value.
+    - EnableInInspectorIfTrue
+    - EnableInInspectorIfFalse
+    - DisableInInspectorIfTrue
+    - DisableInInspectorIfFalse
+  - **Null check** - Property is readonly if a property, field, or method's return value is null.
+    - EnableInInspectorIfNull
+    - EnableInInspectorIfNotNull
+    - DisableInInspectorIfNull
+    - DisableInInspectorIfNotNull
+  - **Equality** - Property is readonly if a property, field, or method's return value is equal to a predefined value.
+    - EnableInInspectorIfEqual
+    - EnableInInspectorIfNotEqual
+    - DisableInInspectorIfEqual
+    - DisableInInspectorIfNotEqual
+  - **Editor Mode** - Property is readonly if the editor is in play mode.
+    - EnableInInspectorWhilePlaying
+    - EnableInInspectorWhileEditing
+    - DisableInInspectorWhilePlaying
+    - DisableInInspectorWhileEditing
 
-Because of the limitations of C#, the name of the variable or method must be used as the parameter. I'm sorry.
+Because of the limitations of C#, names of variables must be used to reference non-constants in attributes. I'm sorry. There is this helpful expression called [nameof()](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof) which will make the syntax less painful.
