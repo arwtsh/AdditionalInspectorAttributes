@@ -1,6 +1,6 @@
 namespace AdditionalInspectorAttributes
 {
-    public class HideIfPlayAttribute : HideIfAttribute
+    public abstract class HideIfPlayAttribute : HideIfAttribute
     {
         public HideIfPlayAttribute()
         {

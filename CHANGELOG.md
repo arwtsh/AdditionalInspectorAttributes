@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.1 (7/10/2025)
+
+### Summary
+
+Minor bug fix
+
+### Fixed
+
+- HideIfPlay base attribute is now abstract
+
 ## v2.1.0 (6/3/2025)
 
 ### Summary
